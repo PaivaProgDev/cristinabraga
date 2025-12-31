@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { RiMenu5Line } from "react-icons/ri";
 import { X } from 'lucide-react';
@@ -8,18 +8,32 @@ import { X } from 'lucide-react';
 
 const Header = () => {
     const [openMenu, setOpenMenu] = useState(false)
+    const [scrollEvent, setScrollEvent] = useState('')
 
     function menuAlternate() {
         setOpenMenu(!openMenu)
     }
 
+    function scroll() {
+        const scroll = window.scrollY
+        setScrollEvent(scroll)
+    }
+    openMenu ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto'
+    useEffect(() => {
+        window.addEventListener('scroll', scroll)
+
+        return () => removeEventListener('scroll', scroll)
+    }, [])
+
+
+
     return (
-        <header className={`flex items-center z-100 sticky sm:backdrop-blur-2xl top-0 w-full bg-[#fff9df6b]  p-4 font-modern`}>
-            <nav className='flex justify-end w-full '>
-                <ul className='h-full  hidden sm:flex  justify-center w-full  text-slate-700  items-center gap-8'>
+        <header className={`flex ${scrollEvent > 50 && 'border-b border-t-2 shadow border-zinc-200'}   bg-white items-center z-100 fixed top-0 w-full font-modern`}>
+            <nav className='flex justify-center w-full '>
+                <ul className='h-full hidden justify-center px-6 py-3.5 sm:flex bg-[rgba(255,255,255,0.17)] backdrop-blur-md w-full text-slate-700 items-center gap-8'>
                     <li className='hover:text-amber-700'>
                         <a href="#home">
-                            Home
+                            Início
                         </a>
                     </li>
                     <li className='hover:text-amber-700'>
@@ -55,12 +69,15 @@ const Header = () => {
                         </Button>
                     </li>
                 </ul>
-                <RiMenu5Line onClick={menuAlternate} className=' cursor-pointer sm:hidden bg-amber-200 size-6' />
-                <div className={`${openMenu && 'right-0'} duration-300 ease-in-out bg-amber-50 border-l-2 shadow-lg z-100 fixed bottom-0 p-6 -right-full flex sm:hidden flex-col gap-8 max-w-[70%] w-full  top-0 `}>
-                    <X onClick={menuAlternate} className=' sm:hidden bg-amber-200 p-0.5 rounded-sm size-6' />
+                <div className='bg-white sm:hidden px-6 backdrop-blur-md py-3.5 w-full flex justify-end'>
+                    <RiMenu5Line onClick={menuAlternate} className=' cursor-pointer   size-7' />
+                </div>
+
+                <div className={`${openMenu && 'right-0  border-t-2 '}  duration-300 ease-in-out bg-amber-50 border-l-2 shadow-lg z-100 fixed bottom-0 p-6 -right-full flex sm:hidden flex-col gap-8 max-w-[70%] w-full  top-0 `}>
+                    <X onClick={menuAlternate} className=' sm:hidden  p-0.5 place-self-end rounded-sm size-8' />
                     <ul className='flex-col text-3xl flex text-slate-800  gap-3'>
                         <li>
-                            <a href="#home">Home</a>
+                            <a href="#home">Início</a>
                         </li>
                         <li>
                             <a href="#services">
