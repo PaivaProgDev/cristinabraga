@@ -5,6 +5,7 @@ import { FaAngleDoubleUp, FaClipboardList, FaStar, FaWhatsapp } from 'react-icon
 import { VscGraph } from "react-icons/vsc";
 import { IoDiamond } from "react-icons/io5";
 import { Button } from '../ui/button';
+import ScrollFloat from '@/components/animation/ScrollFloat';
 
 const Solutions = () => {
 
@@ -45,7 +46,6 @@ const Solutions = () => {
                 <header className='text-5xl max-w-180 font-semibold text-slate-700 text-center italic font-modern'>Podemos te ajudar a<span className='text-[#F89000]'> evoluir</span> com as nossas soluções</header>
             </div>
             <div className='flex relative flex-col font-clean lg:flex-row gap-8 lg:gap-14 mt-20'>
-                <img className=' w-full max-w-120' src="/images/img-solutions.png" alt="imagem em que o RH está executando seu trabalho" />
                 <ul className='grid grid-cols-2  gap-7'>
                     {
                         solutions.map((sol, index) => (

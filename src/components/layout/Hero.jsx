@@ -5,13 +5,13 @@ import { FaAngleDoubleUp } from "react-icons/fa";
 
 const Hero = () => {
     return (
-        <main id='home' className='bg-[#eddc8f0a] relative overflow-hidden min-h-130 pt-18 pb-16 flex justify-center'>
+        <main id='home' className='bg-[#eddc8f0a] relative overflow-hidden min-h-140 lg:pt-34 pt-28 pb-16 flex justify-center'>
             <img
                 src="/images/ondas-hero.png"
                 alt=""
                 className="absolute opacity-30 blur-md object-cover h-full -z-5 w-full"
             />
-            <div className='max-w-7xl flex-col md:flex-row mt-5 px-6 mx-auto flex relative justify-evenly w-full items-center gap-10'>
+            <div className='max-w-7xl flex-col lg:flex-row  px-6 mx-auto flex relative justify-evenly w-full items-center lg:gap-10 gap-14'>
                 <div className='font-modern font-medium'>
                     <h1 className={`text-7xl   text-slate-700`}>Cristina Braga</h1>
                     <h2 className='text-3xl text-slate-800 italic'>Consultoria <span className='text-[#C49D00]'>Estratégica</span> em RH</h2>
@@ -29,7 +29,8 @@ const Hero = () => {
                         </Button>
                     </div>
                 </div>
-                <div className='max-w-100 mt-40 w-full relative'>
+                <img src="/images/img-solutions.png" alt="" className='w-full max-w-100' />
+                {/* <div className='max-w-100 mt-40 w-full relative'>
                     <img className='relative z-10 w-full' src="/images/cristina-img.png" alt="Foto da profissional Coach Cristina Braga" />
                     <div className='bg-[#eddc8f8c] h-100 w-full max-w-80 p-3 rounded-2xl absolute -top-30 right-3'>
                         <div className='bg-white font-modern italic border-2 flex items-center gap-3 rounded-xl px-4 py-2'>
@@ -42,7 +43,7 @@ const Hero = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </main>
     )
